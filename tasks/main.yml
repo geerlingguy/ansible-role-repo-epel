@@ -1,0 +1,7 @@
+---
+# EPEL yum repository.
+- name: Download EPEL repo.
+  get_url: url=http://mirrors.kernel.org/fedora-epel/6/x86_64/epel-release-6-8.noarch.rpm dest=/tmp/
+
+- name: Install EPEL repo.
+  command: rpm -Uvh --force /tmp/epel-release-6-8.noarch.rpm creates=/etc/yum.repos.d/epel.repo
