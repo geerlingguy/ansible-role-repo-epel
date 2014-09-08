@@ -1,6 +1,6 @@
 # Ansible Role: EPEL Repository
 
-Installs the EPEL repository (Extra Packages for Enterprise Linux) for RHEL/CentOS 6.x.
+Installs the EPEL repository (Extra Packages for Enterprise Linux) for RHEL/CentOS.
 
 ## Requirements
 
