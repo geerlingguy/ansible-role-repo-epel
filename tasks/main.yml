@@ -3,6 +3,10 @@
   yum:
     name: "{{ epel_repo_url }}"
     state: present
+  register: result
+  until: '"failed" not in result'
+  retries: 5
+  delay: 10
 
 - name: Import EPEL GPG key.
   rpm_key:
