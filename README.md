@@ -10,14 +10,6 @@ This role only is needed/runs on RHEL and its derivatives.
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    epel_release:
-      "4": 10
-      "5": 4
-      "6": 8
-      "7": 5
-
-A mapping from RHEL major version to current EPEL release version.
-
     epel_repo_url: "http://download.fedoraproject.org/pub/epel/{{ ansible_distribution_major_version }}/{{ ansible_userspace_architecture }}{{ '/' if ansible_distribution_major_version < '7' else '/e/' }}epel-release-{{ ansible_distribution_major_version }}-{{ epel_release[ansible_distribution_major_version] }}.noarch.rpm"
     epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
 
@@ -31,7 +23,7 @@ None.
 
     - hosts: servers
       roles:
-        - { role: geerlingguy.repo-epel }
+        - geerlingguy.repo-epel
 
 ## License
 
