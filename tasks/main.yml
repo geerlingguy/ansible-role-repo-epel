@@ -3,12 +3,14 @@
   yum:
     name: "{{ epel_repo_url }}"
     state: present
+  sudo: true
   register: result
   until: '"failed" not in result'
   retries: 5
   delay: 10
 
 - name: Import EPEL GPG key.
+  sudo: true
   rpm_key:
     key: "{{ epel_repo_gpg_key_url }}"
     state: present
