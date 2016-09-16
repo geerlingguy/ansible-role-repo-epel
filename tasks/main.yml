@@ -1,7 +1,7 @@
 ---
-- name: Check for existing EPEL repo
+- name: Check if EPEL repo is already configured.
   stat: path={{ epel_repofile_path }}
-  register: epel_repofile
+  register: epel_repofile_stat
 
 - name: Install EPEL repo.
   yum:
@@ -11,10 +11,10 @@
   until: '"failed" not in result'
   retries: 5
   delay: 10
-  when: epel_repofile.exists == False
+  when: not epel_repofile_stat.exists
 
 - name: Import EPEL GPG key.
   rpm_key:
     key: "{{ epel_repo_gpg_key_url }}"
     state: present
-  when: epel_repofile.exists == False
+  when: not epel_repofile_stat.exists
