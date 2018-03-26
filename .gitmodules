@@ -1,3 +1,4 @@
 [submodule "travis"]
 	path = travis
 	url = https://github.com/HauptJ/travis-ci-cloudpress.git
+	branch = pipeline
