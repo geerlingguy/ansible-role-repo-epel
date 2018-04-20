@@ -8,7 +8,7 @@
     name: "{{ epel_repo_url }}"
     state: present
   register: result
-  until: '"failed" not in result'
+  until: 'result.rc == 0'
   retries: 5
   delay: 10
   when: not epel_repofile_result.stat.exists
