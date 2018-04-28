@@ -3,6 +3,7 @@
   stat: path={{ epel_repofile_path }}
   register: epel_repofile_result
 
+# This task breaks when using Terraform to deploy to DigitalOcean
 - name: Install EPEL repo.
   yum:
     name: "{{ epel_repo_url }}"
@@ -12,6 +13,7 @@
   retries: 5
   delay: 10
   when: not epel_repofile_result.stat.exists
+  ignore_errors: yes # TEMP: Continue if task breaks
 
 - name: Import EPEL GPG key.
   rpm_key:
