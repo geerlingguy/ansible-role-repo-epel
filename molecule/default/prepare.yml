@@ -1,0 +1,9 @@
+---
+- name: Prepare test container
+  hosts: all
+
+  tasks:
+    - name: Ensure epel-release package is absent
+      package:
+        name: epel-release
+        state: absent
