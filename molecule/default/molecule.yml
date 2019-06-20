@@ -17,6 +17,9 @@ platforms:
     pre_build_image: true
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      inject_facts_as_vars: false
   lint:
     name: ansible-lint
   playbooks:
