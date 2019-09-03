@@ -1,6 +1,9 @@
 ---
 extends: default
+ignore: |
+  molecule-env
 rules:
   line-length:
     max: 140
     level: warning
+  truthy: disable
