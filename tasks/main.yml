@@ -14,6 +14,9 @@
   delay: 10
   when: not epel_repofile_result.stat.exists
 
+- include: mirror.yml
+  when: epel_mirror_url is defined
+
 - name: Import EPEL GPG key.
   rpm_key:
     key: "{{ epel_repo_gpg_key_url }}"
