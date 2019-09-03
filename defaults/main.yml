@@ -1,7 +1,7 @@
 ---
 # Static mirror can be set here
-#epel_mirror_url: "https://fedora.cu.be"
-epel_repo_url: "{{ epel_mirror_url |default('https://dl.fedoraproject.org/pub') }}\
-                /epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
-epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+# epel_mirror_url: "https://fedora.cu.be"
+os_version: "{{ ansible_distribution_major_version }}"
+epel_repo_url: "{{ epel_mirror_url |default('https://dl.fedoraproject.org/pub') }}/epel/epel-release-latest-{{ os_version }}.noarch.rpm"
+epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ os_version }}"
 epel_repofile_path: "/etc/yum.repos.d/epel.repo"
