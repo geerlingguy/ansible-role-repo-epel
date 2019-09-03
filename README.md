@@ -17,6 +17,12 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The EPEL repo URL and GPG key URL. Generally, these should not be changed, but if this role is out of date, or if you need a very specific version, these can both be overridden.
 
+A static mirror can be set through the `epel_mirror_url` variable (see `defaults/main.yml`):
+
+  ```yml
+  epel_mirror_url: "https://fedora.cu.be"
+  ```
+
 ## Dependencies
 
 None.

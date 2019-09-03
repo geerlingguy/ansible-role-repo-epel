@@ -1,0 +1,66 @@
+---
+
+- name: Configure static mirror for EPEL repo.
+  yum_repository:
+    file: epel
+    name: epel
+    description: "Extra Packages for Enterprise Linux {{ ansible_distribution_major_version }} - $basearch"
+    baseurl: "{{ epel_mirror_url }}/epel/{{ ansible_distribution_major_version }}/$basearch"
+    gpgcheck: yes
+    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+    enabled: yes
+
+- name: Configure static mirror for EPEL repo (Debug).
+  yum_repository:
+    file: epel
+    name: epel-debuginfo
+    description:  "Extra Packages for Enterprise Linux {{ ansible_distribution_major_version }} - $basearch - Debug"
+    baseurl: "{{ epel_mirror_url }}/epel/{{ ansible_distribution_major_version }}/$basearch/debug"
+    gpgcheck: yes
+    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+    enabled: no
+
+- name: Configure static mirror for EPEL repo (Source).
+  yum_repository:
+    file: epel
+    name: epel-source
+    description:  "Extra Packages for Enterprise Linux {{ ansible_distribution_major_version }} \
+                   - $basearch - Source"
+    baseurl: "{{ epel_mirror_url }}/epel/{{ ansible_distribution_major_version }}/SRPMS"
+    gpgcheck: yes
+    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+    enabled: no
+
+- name: Configure static mirror for EPEL-Testing repo.
+  yum_repository:
+    file: epel-testing
+    name: epel-testing
+    description: "Extra Packages for Enterprise Linux {{ ansible_distribution_major_version }} \
+                  - Testing - $basearch"
+    baseurl: "{{ epel_mirror_url }}/epel/testing/{{ ansible_distribution_major_version }}/$basearch"
+    gpgcheck: yes
+    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+    enabled: no
+
+- name: Configure static mirror for EPEL-Testing repo (Debug).
+  yum_repository:
+    file: epel-testing
+    name: epel-testing-debuginfo
+    description: "Extra Packages for Enterprise Linux {{ ansible_distribution_major_version }} \
+                  - Testing - $basearch - Debug"
+    baseurl: "{{ epel_mirror_url }}/epel/testing/{{ ansible_distribution_major_version }}/$basearch/debug"
+    gpgcheck: yes
+    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+    enabled: no
+
+- name: Configure static mirror for EPEL-Testing repo (Source).
+  yum_repository:
+    file: epel-testing
+    name: epel-testing-source
+    description: "Extra Packages for Enterprise Linux {{ ansible_distribution_major_version }} \
+                  - Testing - $basearch - Source"
+    baseurl: "{{ epel_mirror_url }}/epel/testing/{{ ansible_distribution_major_version }}/SRPMS"
+    gpgcheck: yes
+    gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+    enabled: no
+
