@@ -20,3 +20,13 @@
     state: present
   when: not epel_repofile_result.stat.exists
   ignore_errors: "{{ ansible_check_mode }}"
+
+- name: Enable PowerTools repo on CentOS 8
+  ini_file:
+    dest: /etc/yum.repos.d/CentOS-PowerTools.repo
+    section: PowerTools
+    option: enabled
+    value: 1
+  when: 
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == '8'
