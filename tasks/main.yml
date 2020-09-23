@@ -4,6 +4,13 @@
     path: "{{ epel_repofile_path }}"
   register: epel_repofile_result
 
+- name: Import EPEL GPG key.
+  rpm_key:
+    key: "{{ epel_repo_gpg_key_url }}"
+    state: present
+  when: not epel_repofile_result.stat.exists
+  ignore_errors: "{{ ansible_check_mode }}"
+
 - name: Install EPEL repo.
   yum:
     name: "{{ epel_repo_url }}"
@@ -13,13 +20,6 @@
   retries: 5
   delay: 10
   when: not epel_repofile_result.stat.exists
-
-- name: Import EPEL GPG key.
-  rpm_key:
-    key: "{{ epel_repo_gpg_key_url }}"
-    state: present
-  when: not epel_repofile_result.stat.exists
-  ignore_errors: "{{ ansible_check_mode }}"
 
 - name: Disable Main EPEL repo.
   ini_file:
