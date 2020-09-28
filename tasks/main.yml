@@ -5,29 +5,13 @@
   register: epel_repofile_result
 
 - name: Import EPEL GPG key.
-  block:
-
-    - name: Import EPEL GPG key with fingerprint safety check (ansible >= 2.9).
-      rpm_key:
-        key: "{{ epel_repo_gpg_key_url }}"
-        fingerprint: "{{ epel_repo_gpg_key_fingerprint[ansible_facts.distribution_major_version] }}"
-        state: present
-      register: result
-      until: result is succeeded
-      retries: 5
-      delay: 10
-      when: ansible_version.full is version('2.9', '>=')
-
-    - name: Import EPEL GPG key (ansible < 2.9).
-      rpm_key:
-        key: "{{ epel_repo_gpg_key_url }}"
-        state: present
-      register: result
-      until: result is succeeded
-      retries: 5
-      delay: 10
-      when: ansible_version.full is version('2.9', '<')
-
+  rpm_key:
+    key: "{{ epel_repo_gpg_key_url }}"
+    state: present
+  register: result
+  until: result is succeeded
+  retries: 5
+  delay: 10
   when: not epel_repofile_result.stat.exists
   ignore_errors: "{{ ansible_check_mode }}"
 
