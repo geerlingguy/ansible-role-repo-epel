@@ -44,7 +44,6 @@ jobs:
         distro:
           - centos8
           - centos7
-          - centos6
 
     steps:
       - name: Check out the codebase.
