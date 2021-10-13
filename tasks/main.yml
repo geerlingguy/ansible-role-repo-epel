@@ -26,7 +26,7 @@
   when: not epel_repofile_result.stat.exists
 
 - name: Disable Main EPEL repo.
-  ini_file:
+  community.general.ini_file:
     path: "/etc/yum.repos.d/epel.repo"
     section: epel
     option: enabled
