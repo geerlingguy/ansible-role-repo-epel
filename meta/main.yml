@@ -1,6 +1,6 @@
 ---
 dependencies:
-  - community.general
+  - collection: community.general
 
 galaxy_info:
   role_name: repo-epel
