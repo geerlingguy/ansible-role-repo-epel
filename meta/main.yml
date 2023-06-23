@@ -7,8 +7,10 @@ galaxy_info:
   description: EPEL repository for RHEL/CentOS.
   company: "Midwestern Mac, LLC"
   license: "license (BSD, MIT)"
-  min_ansible_version: 2.5
+  min_ansible_version: 2.10
   platforms:
+    # I begrudgingly support EL here, only because EPEL is also
+    # critical to use of many projects on downstream projects.
     - name: EL
       versions:
         - 7
