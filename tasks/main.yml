@@ -27,7 +27,7 @@
 
 - name: Disable Main EPEL repo.
   ini_file:
-    path: "/etc/yum.repos.d/epel.repo"
+    path: "{{ epel_repofile_path }}"
     section: epel
     option: enabled
     value: "{{ epel_repo_disable | ternary(0, 1) }}"
