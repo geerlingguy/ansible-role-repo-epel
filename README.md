@@ -21,6 +21,12 @@ The EPEL repo URL and GPG key URL. Generally, these should not be changed, but i
 
 Set to `true` to disable the EPEL repo (even if already installed).
 
+If you already have EPEL repo installed, you may have to override the variable (i.e. in case the file is not named epel.repo)
+
+```
+epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+```
+
 ## Dependencies
 
 None.
