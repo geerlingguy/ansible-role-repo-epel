@@ -1,6 +1,6 @@
 # Ansible Role: EPEL Repository
 
-[![CI](https://github.com/geerlingguy/ansible-role-repo-epel/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-repo-epel/actions?query=workflow%3ACI)
+[![CI](https://github.com/geerlingguy/ansible-role-repo-epel/actions/workflows/ci.yml/badge.svg)](https://github.com/geerlingguy/ansible-role-repo-epel/actions/workflows/ci.yml)
 
 Installs the [EPEL repository](https://fedoraproject.org/wiki/EPEL) (Extra Packages for Enterprise Linux) for RHEL/CentOS.
 
